@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slaloop privacy policy</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#172b4d}h1,h2{line-height:1.25}</style>
+</head><body>
+<h1>Slaloop privacy policy</h1>
+<p>Last updated: 4 November 2026</p>
+<p>Slaloop: SLA for Jira ("Slaloop") is published by Joao Duro De Matos, a sole proprietorship registered in
+Poland (NIP 9452193255), Ułanów 64D lok. 27, 31-460 Kraków, Poland.</p>
+
+<h2>The short version</h2>
+<p>Slaloop runs on Atlassian Forge and is built for the "Runs on Atlassian" programme. It has no servers of its
+own. Everything it stores stays inside Atlassian's platform, for your Jira site, and it sends no data to us or to
+anyone else. It stores no work item summaries, descriptions or comments.</p>
+
+<h2>What Slaloop stores, and where</h2>
+<p>Slaloop keeps its data in the Forge SQL database that Atlassian hosts for the app on your site. Only Slaloop can
+read it; it is not shared with other sites or other apps.</p>
+<ul>
+<li><b>Policies:</b> name, JQL scope, statuses, goals, working hours, holidays and rules, as your administrators
+enter them. A rule can name a person, kept as an account id.</li>
+<li><b>Clocks:</b> for each work item and policy, the work item id and key, project key, status and priority ids,
+and the times: started, due, breached, stopped, time used.</li>
+<li><b>Field values:</b> the value of the "SLA status" and "SLA due" fields for each work item.</li>
+<li><b>Rule log:</b> which rule ran on which work item, when, and if it failed, the reason. That reason can quote
+Jira's own error message.</li>
+</ul>
+<p>Slaloop also writes to Jira itself, through Jira's own APIs: the <b>"SLA status"</b> and <b>"SLA due"</b> fields,
+and whatever your rules say: comments, mentions, priority, assignee and status.</p>
+<p>Finished results are removed 400 days after the work item stopped. When a work item is deleted, its clocks are deleted. When the app is uninstalled, Atlassian removes the app's
+stored data under its Forge data retention rules. Export the report to CSV first if you want to keep it. Comments
+and other changes made by rules stay in Jira like any other Jira data.</p>
+
+<h2>Personal data</h2>
+<p>The only personal data Slaloop stores is the Atlassian account id of a person an administrator names in a rule.
+It stores no names or email addresses. To mention an assignee or reporter, it reads them from the work item at that
+moment and keeps nothing.</p>
+<p>Once a week Slaloop reports the account ids it stores to Atlassian's personal data reporting API, as Atlassian
+requires. When Atlassian answers that an account has been closed, Slaloop removes that account id from the rule, and
+the rule reports a failure until an administrator chooses someone else.</p>
+<p>Only Jira administrators can see and change policies. The report, the gadget and the panel show each person only
+the projects and work items they can see in Jira.</p>
+<p>Atlassian processes your data under its own terms and privacy policy. For the data Slaloop stores, your
+organisation remains the controller; we never receive it.</p>
+
+<h2>What we receive</h2>
+<p>Nothing from your Jira content. Slaloop makes no calls outside Atlassian. Like every Marketplace partner, we can
+see the licensing and install information Atlassian provides to partners (for example which sites have the app
+installed and the licence tier) and the logs Forge keeps for the app. Those logs record counts and errors, and an
+error may contain a work item key. We use this information only to support and improve Slaloop.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:support@studiowebworks.com">support@studiowebworks.com</a>. User guide: <a href="support.html">support page</a>.</p>
+</body></html>

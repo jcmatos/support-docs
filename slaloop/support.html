@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slaloop support and user guide</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#172b4d}h1,h2{line-height:1.25}code{background:#f4f5f7;padding:0 .25em}</style>
+</head><body>
+<h1>Slaloop support and user guide</h1>
+<p><b>Contact:</b> <a href="mailto:support@studiowebworks.com">support@studiowebworks.com</a>. We answer within two working days (Central European Time).</p>
+
+<h2>Getting started</h2>
+<ol>
+<li>A Jira administrator opens <b>Apps &rarr; Manage your apps &rarr; Slaloop SLA policies</b> and presses <b>New policy</b>.</li>
+<li>Give it a name and a JQL scope, such as <code>project = HELP</code>.</li>
+<li>Choose the statuses that pause and stop the clock, the goals and the working hours, then save.</li>
+</ol>
+<p>Clocks start at once. Open work items get theirs from their history; the policies page shows the count as it runs.</p>
+
+<h2>How the clock works</h2>
+<ul>
+<li><b>Start:</b> when the work item is created, or when it first enters a start status if you chose any.</li>
+<li><b>Pause:</b> while it is in a pause status. Paused time does not count.</li>
+<li><b>Stop:</b> when it enters a stop status. The SLA is then <b>Met</b> or <b>Missed</b>.</li>
+<li><b>Reopen:</b> if a stopped work item moves back, the same clock carries on with the time it had.</li>
+<li><b>Working hours:</b> only time inside the policy's hours counts. Outside them the timer stands still.</li>
+<li><b>Priority:</b> the current priority sets the goal. If the priority changes, the new goal applies to the time
+already used, so raising a priority can cause a breach at once.</li>
+<li>A breach stays a breach, even if the priority is lowered later.</li>
+<li>If a work item leaves the scope before it finishes, its clock is removed. A finished result stays.</li>
+</ul>
+
+<h2>Statuses you will see</h2>
+<p><b>On track</b>, <b>At risk</b> (inside the warning time), <b>Paused</b>, <b>Waiting</b> (not started),
+<b>Breached</b> (late and still open), <b>Met</b> and <b>Missed</b> (finished). A work item with several SLAs shows
+the most urgent in its fields, and all of them in the SLA panel.</p>
+
+<h2>Rules</h2>
+<p>A rule runs before the breach (at the warning time) or on the breach. It can add a comment with a mention, set the
+priority, assign the work item, or move it to a status. Rules run on a five-minute check, so one can run up to about
+five minutes after the moment.</p>
+<ul>
+<li>Each rule runs once per work item.</li>
+<li>If the warning and the breach land in the same check, only the breach rules run. Give the warning at least
+ten minutes before the goal to be sure it runs on its own.</li>
+<li>A priority whose goal is not longer than the warning time gets no warning, only the breach.</li>
+<li>Rules run as the app, so the Slaloop app user needs the permission in the project's permission scheme.</li>
+<li>To move a work item, the workflow must have a transition from its current status to the one you chose, and that
+transition must not need a screen.</li>
+<li>Rules do not run for breaches from before the policy was saved, or for a work item that enters the scope more
+than 15 minutes after its breach.</li>
+<li>Rules do not run on a work item that is already stopped or paused.</li>
+</ul>
+<p><b>If a rule fails</b>, the reason shows on the policies page and in the work item's SLA panel. Fix the cause. The
+rule does not run again by itself on that work item.</p>
+
+<h2>Queues and JQL</h2>
+<p>Slaloop keeps two Jira fields up to date, within five minutes:</p>
+<ul>
+<li><code>"SLA status" = Breached</code> finds late work. Use the status names above, with <code>=</code>, not <code>~</code>.</li>
+<li><code>ORDER BY "SLA due" ASC</code> sorts a queue by what is due first.</li>
+</ul>
+<p>To see them on a board or a work item, add the fields as you would any other field.</p>
+
+<h2>Report and gadget</h2>
+<p><b>Apps &rarr; SLA report</b> shows met, missed and open per policy, and the work items behind them. <b>Export
+CSV</b> gives the same rows. Both hold the 1,000 most urgent rows and say so when there are more; choose a shorter
+period for the rest. Everyone sees only the projects and work items they can see in Jira. The counts per
+policy go by project, so they can include a work item hidden by an issue security level; its row is not shown. Add the <b>SLA
+overview</b> gadget to a dashboard for the summary.</p>
+
+<h2>Changing a policy</h2>
+<p>Saving a policy restarts its open clocks from each work item's history, with the new settings. Finished results
+keep the result they had. Deleting a policy deletes its clocks and results; turning it off keeps the results.</p>
+<p>If a policy's JQL stops working, for example when a field is deleted, the policies page says so and its clocks
+wait. When Jira accepts the JQL again, Slaloop reads those work items again by itself.</p>
+<p>Slaloop stores status ids. If you add a project with its own statuses later, open the policy and save it again so
+the new statuses are included.</p>
+
+<h2>How long results are kept</h2>
+<p>Results stay for 400 days after a work item stopped, past the 365 days the report can show, then Slaloop removes
+them. Export a CSV if you need them longer.</p>
+
+<h2>Licence</h2>
+<p>If the licence lapses, clocks stop updating and rules stop running. They catch up from history when it is back.</p>
+</body></html>
