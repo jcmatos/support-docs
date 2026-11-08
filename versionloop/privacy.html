@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Versionloop privacy policy</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#172b4d}h1,h2{line-height:1.25}</style>
+</head><body>
+<h1>Versionloop privacy policy</h1>
+<p>Last updated: 8 November 2026</p>
+<p>Versionloop: Version &amp; Component Sync ("Versionloop") is published by Joao Duro De Matos, a sole proprietorship
+registered in Poland (NIP 9452193255), Ułanów 64D lok. 27, 31-460 Kraków, Poland.</p>
+
+<h2>The short version</h2>
+<p>Versionloop runs on Atlassian Forge and is built for the "Runs on Atlassian" programme. It has no servers of its
+own. Everything it stores stays inside Atlassian's platform, for your Jira site, and it sends no data to us or to
+anyone else. It never reads work item summaries, descriptions or comments.</p>
+
+<h2>What Versionloop stores, and where</h2>
+<p>Versionloop keeps its data in the Forge key-value store that Atlassian hosts for the app on your site. Only
+Versionloop can read it; it is not shared with other sites or other apps.</p>
+<ul>
+<li><b>Sync groups:</b> the name, the lead and follower projects (id, key and name), what syncs, the name filter and the
+delete settings, as your administrators enter them.</li>
+<li><b>Links:</b> which version or component in a follower belongs to which one in the lead, as ids.</li>
+<li><b>Run status:</b> when each group was last checked, and any problems, with the project, the item name and Jira's
+reason.</li>
+<li><b>Audit log:</b> each change the app made: when, the group, the project, the item, the old and new values of the
+synced fields, how it happened, and the account id of the person who changed the lead. Rows are removed after 365 days.</li>
+</ul>
+<p>Versionloop also writes to Jira itself, through Jira's own APIs: it creates, updates and, only if your
+administrators turn deletes on, deletes versions and components in the follower projects, and moves work items to a
+replacement when it deletes one.</p>
+<p>When the app is uninstalled, Atlassian removes the app's stored data under its Forge data retention rules. The
+versions and components it made stay in Jira like any other Jira data.</p>
+
+<h2>Personal data</h2>
+<p>The only personal data Versionloop stores is Atlassian account ids: the person who changed the lead, and a
+component lead, as they appear in the audit log. It stores no names or email addresses; names are shown by Jira when
+the page is opened.</p>
+<p>Once a week Versionloop reports the account ids it stores to Atlassian's personal data reporting API, as Atlassian
+requires. When Atlassian answers that an account has been closed, Versionloop removes that account id from the audit
+log.</p>
+<p>Only Jira administrators can open Versionloop. Atlassian processes your data under its own terms and privacy
+policy. For the data Versionloop stores, your organisation remains the controller; we never receive it.</p>
+
+<h2>What we receive</h2>
+<p>Nothing from your Jira content. Versionloop makes no calls outside Atlassian. Like every Marketplace partner, we
+can see the licensing and install information Atlassian provides to partners (for example which sites have the app
+installed and the licence tier) and the logs Forge keeps for the app. Those logs record errors, and an error may
+contain a project key, a version or component name, or Jira's own error text. We use this information only to
+support and improve Versionloop.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:support@studiowebworks.com">support@studiowebworks.com</a>. User guide: <a href="support.html">support page</a>.</p>
+</body></html>

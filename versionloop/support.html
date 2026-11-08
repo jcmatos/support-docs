@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Versionloop support and user guide</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#172b4d}h1,h2{line-height:1.25}code{background:#f4f5f7;padding:0 .25em}</style>
+</head><body>
+<h1>Versionloop support and user guide</h1>
+<p><b>Contact:</b> <a href="mailto:support@studiowebworks.com">support@studiowebworks.com</a>. We answer within two working days (Central European Time).</p>
+
+<h2>What it does</h2>
+<p>A <b>sync group</b> is one lead project and the projects that follow it. Versionloop copies the lead's versions,
+components or both to every follower, and keeps the copies in step from then on. The lead always wins.</p>
+<ul>
+<li><b>Versions:</b> name, description, start date, release date, released and archived.</li>
+<li><b>Components:</b> name, description, component lead and default assignee.</li>
+</ul>
+<p>Company-managed and team-managed projects both work. The order of versions is not synced.</p>
+
+<h2>Getting started</h2>
+<ol>
+<li>A Jira administrator opens <b>Settings &rarr; Apps</b>, then <b>Versionloop</b> under Apps in the sidebar.</li>
+<li>Press <b>New group</b>. Give it a name, choose the lead project and the followers, and choose versions,
+components or both.</li>
+<li>Press <b>Save and preview</b>. Nothing changes yet: the preview lists, per follower, what would be created,
+updated, linked or left alone.</li>
+<li>Press <b>Apply</b>. The group is now <b>Live</b>.</li>
+</ol>
+
+<h2>How it syncs</h2>
+<ul>
+<li><b>Live:</b> a change in the lead reaches the followers within seconds, or a few minutes when many changes
+come at once.</li>
+<li><b>Nightly check:</b> once a day Versionloop compares every live group and repairs anything that drifted, such
+as a copy someone edited or deleted by hand in a follower. <b>Check now</b> runs the same check at once.</li>
+<li><b>Same name:</b> if a follower already has an item with the same name (not case sensitive), Versionloop links
+it instead of making a second one. The preview names these items.</li>
+<li><b>Renames</b> follow the link, so a renamed version stays the same version in every follower.</li>
+<li><b>Items only in a follower</b> are never touched. Versionloop only changes copies it made or linked.</li>
+</ul>
+
+<h2>Name filter</h2>
+<p>To sync only some items, give patterns separated by commas, where <code>*</code> matches anything:
+<code>2026.*, Release *</code>. The filter applies to versions and components alike, so use separate groups if they
+need different filters. An item that leaves the filter keeps its copies, which are no longer synced.</p>
+
+<h2>Deletes</h2>
+<p><b>Off by default.</b> When the lead deletes an item, the copies stay in the followers and are no longer synced.</p>
+<p>When you turn deletes on:</p>
+<ul>
+<li>Only items Versionloop linked are deleted, including same-name items it adopted.</li>
+<li>For versions, work items move to the version chosen in the lead project when it was deleted (fix and affects
+versions each to their own), else to the version named in the group. A merge in the lead moves them to the merged
+copy.</li>
+<li>For components, Jira does not tell apps where work items went, so they move to the component named in the group.</li>
+<li>With neither, a copy that work items still use stays, and is no longer synced.</li>
+<li>If the lead project itself is deleted or cannot be read, nothing is deleted in the followers.</li>
+</ul>
+
+<h2>Changing a group</h2>
+<p>Changing the projects, what syncs, the filter or the delete settings turns the group off until you apply a new
+preview, so what runs is always what you saw. Renaming the group does not. <b>Pause</b> stops a group; <b>Review and
+apply</b> starts it again. Deleting a group stops syncing and leaves every version and component where it is.</p>
+<p>A project can follow one lead for versions and one for components. A follower cannot lead another group, because
+Jira does not tell apps about their own changes, so a chain would not pass changes on.</p>
+
+<h2>Problems</h2>
+<p>When an item cannot be synced, the groups page shows <b>Problems</b> with the project, the item and Jira's reason,
+such as a name the follower already uses for another item. Fix the cause; the next live change or nightly check tries
+again. A follower that has been deleted or moved to the trash is reported the same way.</p>
+
+<h2>Audit log</h2>
+<p>Every change Versionloop makes is in the <b>Audit log</b> tab: when, which group and project, the item, the old and
+new values, how it happened (live, nightly check, apply, check now) and who changed the lead. Rows are kept for 365 days.</p>
+
+<h2>Limits</h2>
+<ul>
+<li>50 groups per site, 50 followers per group.</li>
+<li>Components managed in Compass are not synced; such a project shows a problem for components.</li>
+<li>Only Jira administrators can see the Versionloop page.</li>
+</ul>
+
+<h2>Licence</h2>
+<p>If the licence lapses, syncing stops. When it is back, the nightly check (or <b>Check now</b>) brings every follower
+up to date.</p>
+</body></html>
