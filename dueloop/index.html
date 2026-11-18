@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dueloop: SLA timers and due dates for Google Sheets</title>
+<meta name="description" content="Dueloop adds SLA due dates, working time left, overdue colours and a daily overdue email to any Google Sheets tracker. Business days, working hours and holidays.">
+<style>body{font:16px/1.6 system-ui,sans-serif;max-width:46rem;margin:2rem auto;padding:0 1rem;color:#1f2a30}h1,h2{line-height:1.25}code{background:#eef2f1;padding:1px 4px;border-radius:3px}table{border-collapse:collapse}td,th{border:1px solid #dde3e2;padding:4px 8px;text-align:left}</style>
+</head><body>
+<h1>Dueloop: SLA timers for Google Sheets</h1>
+<p>Dueloop turns any tracker sheet (support tickets, requests, tasks, invoices) into an SLA tracker. It counts
+<b>working time only</b>: your working days, your hours and your holidays.</p>
+<p>Support: <a href="mailto:support@studiowebworks.com">support@studiowebworks.com</a> ·
+<a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms of service</a></p>
+
+<h2>What it does</h2>
+<ul>
+<li>Adds three columns to your tab: <b>SLA due</b>, <b>SLA left</b> and <b>SLA state</b>.</li>
+<li>States: <b>On track</b>, <b>Due soon</b>, <b>Overdue</b>, and for finished rows <b>Met</b>, <b>Breached</b> or <b>Done</b>.</li>
+<li>Colours each row by its state (you can turn this off).</li>
+<li>Recomputes every hour and whenever you edit the tab.</li>
+<li>Sends a daily email with what is overdue or due soon, only when there is something to say.</li>
+</ul>
+
+<h2>Set it up</h2>
+<ol>
+<li>Open your sheet, then <b>Extensions › Dueloop › Set up SLA timers</b>.</li>
+<li>Say how the due time is set:
+  <ul>
+  <li><b>Start date + one goal</b>, for example <code>2d</code>, <code>4h</code> or <code>1d 4h</code>;</li>
+  <li><b>Start date + goal by priority</b>, with rules like <code>High = 4h</code>, one per line;</li>
+  <li>or <b>an existing due date column</b>. A due date without a time means the end of that day.</li>
+  </ul></li>
+<li>Optional: the status column and the words that mean finished (<code>Done, Closed</code>), and a
+"finished on" date column to get Met or Breached.</li>
+<li>Set your working days, hours (or whole days only, or 24/7), holidays and time zone.</li>
+<li>Press <b>Save and refresh</b>.</li>
+</ol>
+<p>Goals count working time: <code>2d</code> is two working days, at the same time of day
+(opened Monday 15:00, due Wednesday 15:00). <code>4h</code> is four working hours.</p>
+<p>Columns are found by their header text, so you can move them. If you rename one, Dueloop tells you
+and waits until you pick it again.</p>
+
+<h2>Formulas</h2>
+<table>
+<tr><th>Formula</th><th>Gives</th></tr>
+<tr><td><code>=SLA_DUE(A2, "2d")</code></td><td>The due date and time, two working days after A2 (Monday to Friday, 9:00 to 17:00).</td></tr>
+<tr><td><code>=SLA_DUE(A2, "4h", "2026-12-25, 2026-12-26")</code></td><td>The same, skipping those holidays.</td></tr>
+<tr><td><code>=WORK_HOURS(A2, B2)</code></td><td>Working hours between two dates, as a number.</td></tr>
+</table>
+
+<h2 id="pricing">Free and Pro</h2>
+<table>
+<tr><th></th><th>Free</th><th>Pro</th></tr>
+<tr><td>Tracked tabs per spreadsheet</td><td>1</td><td>Unlimited</td></tr>
+<tr><td>Daily email recipients</td><td>1</td><td>Up to 20</td></tr>
+<tr><td>Email each owner their own rows</td><td>No</td><td>Yes</td></tr>
+<tr><td>Working hours, holidays, colours, formulas</td><td>Yes</td><td>Yes</td></tr>
+</table>
+<p>Pro is not on sale yet. Everything in the free column works now.</p>
+
+<h2>Stop using it</h2>
+<p>In the sidebar press <b>Stop tracking</b>: the row colours go, and when no tab is tracked any more the hourly
+refresh and emails stop. The three SLA columns stay; delete them like any column. To remove the add-on entirely:
+Extensions › Add-ons › Manage add-ons.</p>
+
+<p style="color:#667;font-size:14px">Dueloop is published by Joao Duro De Matos, Kraków, Poland. It is not made by Google.</p>
+</body></html>
