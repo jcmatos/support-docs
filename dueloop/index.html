@@ -45,6 +45,9 @@ and waits until you pick it again.</p>
 <tr><td><code>=SLA_DUE(A2, "4h", "2026-12-25, 2026-12-26")</code></td><td>The same, skipping those holidays.</td></tr>
 <tr><td><code>=WORK_HOURS(A2, B2)</code></td><td>Working hours between two dates, as a number.</td></tr>
 </table>
+<p>Holidays can also be a range of dates, like <code>=SLA_DUE(A2, "2d", Holidays!A2:A30)</code>.
+Google Sheets shows a formula's date without the time at first. To see the time too, pick
+the column and choose <b>Format › Number › Date time</b>.</p>
 
 <h2 id="pricing">Free and Pro</h2>
 <table>
