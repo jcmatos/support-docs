@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Versionloop issue tracker: known bugs and planned features</title>
+<style>
+body{font:16px/1.6 system-ui,sans-serif;max-width:52rem;margin:2rem auto;padding:0 1rem;color:#172b4d}
+h1,h2{line-height:1.25}code{background:#f4f5f7;padding:0 .25em}
+table{border-collapse:collapse;width:100%;margin:.5rem 0 1.5rem}th,td{border-bottom:1px solid #dfe1e6;padding:.45rem .5rem;text-align:left;vertical-align:top}
+th{font-size:.85rem;color:#44546f;text-transform:uppercase;letter-spacing:.03em}
+.s{display:inline-block;padding:0 .45em;border-radius:3px;font-size:.8rem;font-weight:600;white-space:nowrap}
+.open{background:#ffebe6;color:#ae2a19}.planned{background:#e9f2ff;color:#0055cc}.consider{background:#f1f2f4;color:#44546f}.done{background:#dcfff1;color:#216e4e}
+</style>
+</head><body>
+<h1>Versionloop issue tracker</h1>
+<p>Public list of known bugs, feature requests and their progress for <b>Versionloop: Version &amp; Component Sync for Jira</b>.
+No sign-in needed. <b>Last updated: 22 November 2026.</b></p>
+<p><b>Report a bug or ask for a feature:</b> email <a href="mailto:support@studiowebworks.com">support@studiowebworks.com</a>.
+We reply within two working days (Central European Time) and add every confirmed bug and every feature request here,
+without names, site addresses or other personal data. See also the <a href="support.html">support and user guide</a>.</p>
+
+<h2>Known bugs</h2>
+<table>
+<tr><th>ID</th><th>Bug</th><th>Status</th><th>Updated</th></tr>
+<tr><td>VL-1</td><td>The audit log shows the default assignee of a newly created component as the raw value <code>PROJECT_DEFAULT</code>
+instead of "Project default". Cosmetic only: the component itself is created correctly.</td>
+<td><span class="s planned">Fix planned, next version</span></td><td>22 Nov 2026</td></tr>
+<tr><td>VL-2</td><td>A problem raised by a live change while the nightly check (or <b>Check now</b>) is running can disappear from the
+<b>Problems</b> list when the check ends. Nothing is lost in Jira: the next change or nightly check tries the item again
+and shows the problem again if it still fails.</td>
+<td><span class="s planned">Fix planned, next version</span></td><td>22 Nov 2026</td></tr>
+</table>
+
+<h2>Feature requests and planned work</h2>
+<table>
+<tr><th>ID</th><th>Request</th><th>Status</th><th>Updated</th></tr>
+<tr><td>VL-3</td><td>Separate name filters for versions and components in the same group (today one filter applies to both;
+the workaround is two groups).</td><td><span class="s consider">Under consideration</span></td><td>22 Nov 2026</td></tr>
+<tr><td>VL-4</td><td>Keep the order of versions in step across projects (today the order is not synced).</td>
+<td><span class="s consider">Under consideration</span></td><td>22 Nov 2026</td></tr>
+<tr><td>VL-5</td><td>Sync components managed in Compass (today such a project shows a problem for components).</td>
+<td><span class="s consider">Under consideration</span></td><td>22 Nov 2026</td></tr>
+<tr><td>VL-6</td><td>Export the audit log as CSV.</td><td><span class="s consider">Under consideration</span></td><td>22 Nov 2026</td></tr>
+</table>
+
+<h2>Limits by design</h2>
+<p>These are not bugs; they are explained in the <a href="support.html">user guide</a>.</p>
+<ul>
+<li>A follower cannot lead another group, because Jira does not tell an app about changes it made itself, so a chain would not pass changes on.</li>
+<li>50 groups per site and 50 followers per group.</li>
+<li>Only Jira administrators can see the Versionloop page.</li>
+</ul>
+
+<h2>Recently fixed</h2>
+<table>
+<tr><th>Version</th><th>Fix</th><th>Status</th></tr>
+<tr><td>2.0.0</td><td>First public version. Fixed before release: editing a live group no longer turns sync off without saying so;
+a deleted or unreadable lead project never causes deletes in followers; a slow preview reports which follower ran out of time.</td>
+<td><span class="s done">Released</span></td></tr>
+</table>
+</body></html>
